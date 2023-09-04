@@ -1,0 +1,17 @@
+{
+    "name": "cockbookmern",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start:client": "npm run start --workspace=client",
+        "start:server": "npm run start --workspace=server"
+    },
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
