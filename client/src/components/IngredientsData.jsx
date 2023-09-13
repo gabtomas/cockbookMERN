@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function IngredientsData() {
-    //fetch ingredients from localhost:3000/ingredients
-
     const [ingredients, setIngredients] = useState([]);
-
-    // const ingredientsDataFetch = () => {
-    //     fetch("http://localhost:3000/ingredients")
-    //         .then((response) => response.json())
-    //         .then((data) => setIngredients(data))
-    //         .catch((error) => console.log(error));
-    // };
 
     const ingredientsDataFetch = async () => {
         try {
