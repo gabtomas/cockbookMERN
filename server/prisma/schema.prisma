@@ -11,8 +11,28 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Recipe {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String?
+  ingredients RecipeIngredient[]
+}
+
+
 model Ingredient {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String?
+  recipes     RecipeIngredient[]
+}
+
+//create model for RecipeIngredient
+model RecipeIngredient {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  recipeID    String    @db.ObjectId
+  ingredientID String   @db.ObjectId
+  recipe      Recipe    @relation(fields: [recipeID], references: [id])
+  ingredient  Ingredient @relation(fields: [ingredientID], references: [id])
+
+  @@index([recipeID], name: "recipeID")
 }
